@@ -1,0 +1,21 @@
+body { background-color: rgb(1,122,255) !Important;
+    min-height: 100vh;
+  
+}
+.flexcard{
+    min-height: 100vh;
+    background-color: rgb(1,122,255);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.card{
+    width: 60%;
+}
+
+.card-img-top{
+    height: 220px;
+
+}
