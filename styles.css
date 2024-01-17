@@ -1,11 +1,14 @@
-body { background-color: rgb(1,122,255) !Important;
+body { background-color: rgb(15, 125, 242) !Important;
     min-height: 100vh;
   padding: 2%;
   margin: 0;
+  font-family: "Oleo Script", system-ui  !important; 
+  font-size: 16px;
+
 }
 .flexcard{
     min-height: 100vh;
-    background-color: rgb(1,122,255);
+    background-color: rgb(0, 123, 255);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -34,13 +37,15 @@ background-color: black;
 }
 
 .list-group-item:hover{
-background-color: rgba(0, 255, 255, 0.327);
+background-color: rgb(74, 43, 113) !important;
 cursor:-webkit-grab;
+
 }
 
 .list-group-item{
     background-color: black !important;
     color: goldenrod !important; 
+    text-shadow: 0px 0px 34px rgb(0, 0, 0);
 }
 
 .card-body1{
@@ -49,3 +54,26 @@ cursor:-webkit-grab;
     padding-left: 16px;
 }
 
+
+.oleo-script-regular {
+    font-family: "Oleo Script", system-ui;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+  .oleo-script-bold {
+    font-family: "Oleo Script", system-ui;
+    font-weight: 700;
+    font-style: normal;
+  }
+  
+  .h1one{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+
+  .frage-color{
+    color: goldenrod;
+  }
