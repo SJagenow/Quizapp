@@ -109,19 +109,19 @@ let quiz = [
 
     {
         "question": 'Frage: Wenn Rick von Rick and Morty ein Computerprogrammierer wäre, welche Schleife würde er am liebsten verwenden und warum?  2 antworten möglich',
-        
+
         "anwser_1": '<b>a)</b> u-Boot',
         "anwser_2": '<b>b)</b> Die "Interdimensional Loop", um Code zwischen verschiedenen Realitäten zu verschachteln.',
         "answer_3": '<b>c)</b> Elfen?',
         "answer_4": '<b>d)</b> Die "Time-Traveling Loop", um Code in der Vergangenheit zu optimieren, bevor er geschrieben wird.',
-        "right_answer":2/4
+        "right_answer": 2 / 4
     },
 
 ];
 
 let currentQuestion = 0;
 
-function start(){
+function start() {
     document.getElementById('all-questions').innerHTML = quiz.length;
 
     showQuiz();
@@ -130,7 +130,7 @@ function start(){
 
 function showQuiz() {
     let question = quiz[currentQuestion];
-  
+
     document.getElementById('questiontext').innerHTML = question['question'];
 
     document.getElementById('answer-one').innerHTML = question['answer_1'];
@@ -140,19 +140,19 @@ function showQuiz() {
 }
 
 
-function answer(selection){
-let question = quiz[currentQuestion];
+function answer(selection) {
+    let question = quiz[currentQuestion];
 
-console.log('selected answer is', selection);
-let selecteddQuestionNumber = selection.slice(-1);
-console.log('selectedQuestionNumber is',selecteddQuestionNumber );
-console.log('current question is', question['right_answer'] );
+    console.log('selected answer is', selection);
+    let selecteddQuestionNumber = selection.slice(-1);
+    console.log('selectedQuestionNumber is', selecteddQuestionNumber);
+    console.log('current question is', question['right_answer']);
 
-if(selecteddQuestionNumber == question['right_answer']) {
-    console.log('Richtige Antwort!!');
-  document.getElementById(selection).classList.add('bg-success');
-}else{
-    console.log('Falsche Antwort!!');
-}
+    if (selecteddQuestionNumber == question['right_answer']) {
+        console.log('Richtige Antwort!!');
+        document.getElementById(selection).classList.add('bg-success');
+    } else {
+        console.log('Falsche Antwort!!');
+    }
 }
 
