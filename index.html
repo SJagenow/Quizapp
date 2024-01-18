@@ -17,23 +17,30 @@
 </head>
 <body onload="start()">
     
+  <div class="flexcard"   id="endScreen" style="display: none;">
+   <b class="text-center"> Quiz beendet Super!</b>
+   <div><img class="endImg" src="./img/quiz-ende.jpg" alt=""></div>
+   <div class="text-center">
+    Du hast <b id="amount-of-right-questions"></b> Fragen von <b id="amount-of-Questions"></b> richtig beantwortet.
+   </div>
+  </div>
+
     
-    <h1 class="h1one">QuizApp</h1>
-    <div class="flexcard">
-        <div class="card" style="width: 60rem;">
+    <div class="flexcard" id="quizBody">
+        <div class="card" style="width: 60rem;" >
             <img src="./img/fragezeichen Gold.jpg" class="card-img-top" alt="...">
-            <div class="card-body1">
+            <div class="card-body1" >
               <h5 class="card-title">Codingquiz</h5>
               <p class="card-text" id="questiontext"><b>Frage: :</b></p>
             </div>
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item" id="answer-one" onclick="answer('answer_1')" >  </li>
-              <li class="list-group-item" id="answer-two" onclick="answer('answer_2')" >   </li>
-              <li class="list-group-item" id="answer-tree" onclick="answer('answer_3')" >   </li>
-              <li class="list-group-item" id="answer-four" onclick="answer('answer_4')" >   </li>
-            </ul>
+            <div class="list-group list-group-flush"  >   
+              <button class="list-group-item" id="answer_1" onclick="answer('answer_1')" >  </button>
+              <button class="list-group-item" id="answer_2" onclick="answer('answer_2')" >   </button>
+              <button class="list-group-item" id="answer_3" onclick="answer('answer_3')" >   </button>
+              <button class="list-group-item" id="answer_4" onclick="answer('answer_4')" >   </button>
+            </div>
             <div class="card-body">
-            <div><div class="frage-color">Frage <b>1</b> von <b id="all-questions">1</b>   </div> <button>Wiederholen</button><button>Nächste Frage</button></div><img class="quiznight" src="./img/quiznight.png" alt="">
+            <div><div class="frage-color">Frage <b id="question-number">1</b> von  <b id="all-questions">1 </b>   </div> <button id="next-Button" class="next-Button" onclick="nextQuestion()" disabled>Nächste Frage</button></div><img class="quiznight" src="./img/quiznight.png" alt="">
             </div>
           </div>
       </div>

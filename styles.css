@@ -13,6 +13,8 @@ body { background-color: rgb(15, 125, 242) !Important;
     align-items: center;
     justify-content: center;
     
+   
+    
 }
 
 .card{
@@ -43,9 +45,10 @@ cursor:-webkit-grab;
 }
 
 .list-group-item{
-    background-color: black !important;
-    color: goldenrod !important; 
+    background-color: black !important ;
+    color: rgb(201, 157, 11) !important; 
     text-shadow: 0px 0px 34px rgb(0, 0, 0);
+    border-radius: 40px;
 }
 
 .card-body1{
@@ -77,3 +80,34 @@ cursor:-webkit-grab;
   .frage-color{
     color: goldenrod;
   }
+
+  .list-group{
+   background-color:rgb(89, 19, 89);
+  }
+
+  .next-Button {
+    background-color: rgb(72, 65, 65);
+    color: mediumseagreen;
+  }
+
+  .next-Button:hover{
+    background-color: mediumspringgreen;
+    color: black;
+  }
+
+.endImg{
+height: 400px;
+}
+
+.width-100 {
+  width: 100%;
+}
+
+.text-center{
+   text-align: center;
+} 
+
+.coll{
+  display: flex;
+  flex-direction: column;
+}
