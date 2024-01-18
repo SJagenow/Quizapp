@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
-    <script src="script.js"></script>
+    
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,7 +15,7 @@
     
     <title>QuizApp</title>
 </head>
-<body>
+<body onload="start()">
     
     
     <h1 class="h1one">QuizApp</h1>
@@ -24,19 +24,21 @@
             <img src="./img/fragezeichen Gold.jpg" class="card-img-top" alt="...">
             <div class="card-body1">
               <h5 class="card-title">Codingquiz</h5>
-              <p class="card-text"><b>Frage:  Wofür benutzt man CSS:</b></p>
+              <p class="card-text" id="questiontext"><b>Frage: :</b></p>
             </div>
             <ul class="list-group list-group-flush">
-              <li class="list-group-item"><b>a)</b>  um  zB. ein Button Logik zu geben was passieren soll wenn wir auf den Button drücken  </li>
-              <li class="list-group-item"><b>b)</b>  um ein Projekt auf github hochzuladen  </li>
-              <li class="list-group-item"><b>c)</b>  Es handelt sich dabei um eine Gestaltungs- und Formatierungssprache, mit der das Aussehen von HTML-Dokumenten bestimmt wird. </li>
-              <li class="list-group-item"><b>d)</b>  um ein Projekt von github zu Löschen </li>
+              <li class="list-group-item" id="answer-one" onclick="answer('answer_1')" >  </li>
+              <li class="list-group-item" id="answer-two" onclick="answer('answer_2')" >   </li>
+              <li class="list-group-item" id="answer-tree" onclick="answer('answer_3')" >   </li>
+              <li class="list-group-item" id="answer-four" onclick="answer('answer_4')" >   </li>
             </ul>
             <div class="card-body">
-            <div><div class="frage-color">Frage 1 von 10 </div> <button>Wiederholen</button><button>Nächste Frage</button></div><img class="quiznight" src="./img/quiznight.png" alt="">
+            <div><div class="frage-color">Frage <b>1</b> von <b id="all-questions">1</b>   </div> <button>Wiederholen</button><button>Nächste Frage</button></div><img class="quiznight" src="./img/quiznight.png" alt="">
             </div>
           </div>
       </div>
     </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
