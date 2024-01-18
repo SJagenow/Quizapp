@@ -115,41 +115,48 @@ let quiz = [
         "answer_3": '<b>c)</b> Elfen?',
         "answer_4": '<b>d)</b> Die "Time-Traveling Loop", um Code in der Vergangenheit zu optimieren, bevor er geschrieben wird. und  Die "Interdimensional Loop", um Code zwischen verschiedenen Realitäten zu verschachteln.',
         "right_answer": 4
-        
+
     },
 
 ];
 
 let rightQuestions = 0;
-
-
 let currentQuestion = 0;
+let AUDIO_SUCCESS = new Audio('sounds/correct.mp3');
+let AUDIO_FAIL = new Audio('sounds/wrong.mp3');
 
 function start() {
     document.getElementById('all-questions').innerHTML = quiz.length;
-
     showQuiz();
 }
 
 
 function showQuiz() {
-    
-    if(currentQuestion >= quiz.length){
-    
-    document.getElementById('endScreen').style = 'font-size:40px';
-    document.getElementById('quizBody').style ='display: none'; 
 
-    document.getElementById('amount-of-Questions').innerHTML = quiz.length;
-    document.getElementById('amount-of-right-questions').innerHTML = rightQuestions;
-    }else{
-    let question = quiz[currentQuestion];
+    if (currentQuestion >= quiz.length) {
 
-    document.getElementById('question-number').innerHTML = currentQuestion + 1;
-    document.getElementById('questiontext').innerHTML = question['question'];
-    document.getElementById('answer_1').innerHTML = question['answer_1'];
-    document.getElementById('answer_2').innerHTML = question['answer_2'];
-    document.getElementById('answer_3').innerHTML = question['answer_3'];
-    document.getElementById('answer_4').innerHTML = question['answer_4'];
+        document.getElementById('endScreen').style = 'font-size:40px';
+        document.getElementById('quizBody').style = 'display: none';
+
+        document.getElementById('amount-of-Questions').innerHTML = quiz.length;
+        document.getElementById('amount-of-right-questions').innerHTML = rightQuestions;
+
+    } else { //show queszion
+        let percent = currentQuestion / quiz.length;
+        percent = Math.round(percent * 100);
+
+        document.getElementById('progress-bar').innerHTML = `${percent}%`;
+        document.getElementById('progress-bar').style.width = `${percent}px`;
+        console.log('Fortschritt:', percent)
+
+        let question = quiz[currentQuestion];
+
+        document.getElementById('question-number').innerHTML = currentQuestion + 1;
+        document.getElementById('questiontext').innerHTML = question['question'];
+        document.getElementById('answer_1').innerHTML = question['answer_1'];
+        document.getElementById('answer_2').innerHTML = question['answer_2'];
+        document.getElementById('answer_3').innerHTML = question['answer_3'];
+        document.getElementById('answer_4').innerHTML = question['answer_4'];
     }
 }
 
@@ -162,37 +169,36 @@ function answer(selection) {
     console.log('selectedQuestionNumber is', selecteddQuestionNumber);
     console.log('current question is', question['right_answer']);
 
-   let idofRightAnswer = `answer_${question['right_answer']}` ;
+    let idofRightAnswer = `answer_${question['right_answer']}`;
 
 
     if (selecteddQuestionNumber == question['right_answer']) {
         console.log('Richtige Antwort!!');
         document.getElementById(selection).classList.add('bg-success');
         document.getElementById(selection).parentNode.classList.add('bg-success');
+        AUDIO_SUCCESS.play();
         rightQuestions++;
-
     } else {
         console.log('Falsche Antwort!!');
         document.getElementById(selection).classList.add('bg-danger');
         document.getElementById(idofRightAnswer).classList.add('bg-success');
         document.getElementById(selection).parentNode.classList.add('bg-danger');
-        
+        AUDIO_FAIL.play();
     }
     document.getElementById('next-Button').disabled = false;
 }
 
 
-function nextQuestion(){
+function nextQuestion() {
     currentQuestion++; //z.B von 0 auf 1
     document.getElementById('next-Button').disabled = true;
     showQuiz();
     resetAnswerButtons()
-
 }
 
 
 
-function resetAnswerButtons()  {
+function resetAnswerButtons() {
 
     document.getElementById('answer_1').classList.remove('bg-danger');
     document.getElementById('answer_1').classList.remove('bg-success');
@@ -211,7 +217,12 @@ function resetAnswerButtons()  {
     document.getElementById('answer_3').parentNode.classList.remove('bg-success');
     document.getElementById('answer_4').parentNode.classList.remove('bg-danger');
     document.getElementById('answer_4').parentNode.classList.remove('bg-success');
+}
 
-
-
+function restartQuiz() {
+    document.getElementById('endScreen').style = 'display: none';
+    document.getElementById('quizBody').style = 'display: flex';
+    rightQuestions = 0;
+    currentQuestion = 0;
+    start();
 }
